@@ -9,7 +9,7 @@ public final class Main2 {
     // todo think about name
     private static Map<Integer, String[]> map = new HashMap<>();
     private static int helperWithPinArrayIndex;
-    private static int outFromRecursionHelper;
+    private static int outFromRecursionHelper = 1;
 
     // default is 0
     private static int helperCountWithPin;
@@ -113,7 +113,10 @@ public final class Main2 {
 //        for (int i = 0; i < arrayForCorrection.size(); i++) {
 //            outFromRecursionHelper = 0;
 //            outFromRecursionHelper = arrayForCorrection.size();
-            printFinalResult(arrayForCorrection, array, outFromRecursionHelper);
+        for (int i = 0; i < arrayForCorrection.size(); i++) {
+            outFromRecursionHelper = outFromRecursionHelper * arrayForCorrection.get(i).length;
+        }
+            printFinalResult(arrayForCorrection, helperWithPinArrayIndex);
 //        }
 //        countOfPins--;
 //
@@ -138,35 +141,41 @@ public final class Main2 {
         }
     }
 
-    private void printFinalResult(List<String[]> arrayForCorrection, int[] array, int tempCount) {
-        for (int i = 0; i < array.length; i++) {
-            while (array[i] > 0) {
-                for (int j = 0; j < arrayForCorrection.size(); j++) {
-                    String[] strings = arrayForCorrection.get(j);
-                    for (int k = 0; k < strings.length; k++) {
-                        tempCount++;
-                    }
-                }
+    private void printFinalResult(List<String[]> arrayForCorrection, int tempCount) {
+        if(outFromRecursionHelper > 0) {
+            outFromRecursionHelper--;
+            tempCount++;
+            printFinalResult(arrayForCorrection, tempCount);
+        } else {
+            System.out.println(tempCount);
+        }
 
-//                while (array[] > 0) {
-//                    for (int j = 0; j < arrayForCorrection.size(); j++) {
-//                        StringBuilder s = new StringBuilder();
-//                        for (int k = 0; k < arrayForCorrection.get(j).length; k++) {
-//                            s.append(arrayForCorrection.get(j)[k]);
-//                        }
-//                        System.out.println(s.toString());
+
+
+
+//        for (int i = 0; i < array.length; i++) {
+//            while (array[i] > 0) {
+//                for (int j = 0; j < arrayForCorrection.size(); j++) {
+//                    String[] strings = arrayForCorrection.get(j);
+//                    for (int k = 0; k < strings.length; k++) {
+//                        tempCount++;
 //                    }
-//                    printFinalResult(arrayForCorrection, --i, --tempCount);
 //                }
-//                System.out.println();
-              array[i]--;
-            }
-        }
-
-        System.out.println(tempCount);
-        if (Arrays.stream(array).sum() != 0) {
-            printFinalResult(arrayForCorrection, array, tempCount);
-        }
+//
+////                while (array[] > 0) {
+////                    for (int j = 0; j < arrayForCorrection.size(); j++) {
+////                        StringBuilder s = new StringBuilder();
+////                        for (int k = 0; k < arrayForCorrection.get(j).length; k++) {
+////                            s.append(arrayForCorrection.get(j)[k]);
+////                        }
+////                        System.out.println(s.toString());
+////                    }
+////                    printFinalResult(arrayForCorrection, --i, --tempCount);
+////                }
+////                System.out.println();
+//              array[i]--;
+//            }
+//        }
 
     }
 

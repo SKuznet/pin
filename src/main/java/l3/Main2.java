@@ -19,15 +19,15 @@ public class Main2 {
         System.out.println(Arrays.deepToString(ints));
 
 
-//        for (int i = 0; i < array1.length; i++) {
-//            for (int j = 0; j < array2.length ; j++) {
-//                for (int k = 0; k < array3.length ; k++) {
-//                    for (int l = 0; l < array4.length; l++) {
-//                        String result = array1[i] + array2[j] + array3[k] + array4[l];
-//                        System.out.println(result + "");
-//                    }
-//                }
-//            }
-//        }
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length ; j++) {
+                for (int k = 0; k < array3.length ; k++) {
+                    for (int l = 0; l < array4.length; l++) {
+                        String result = array1[i] + array2[j] + array3[k] + array4[l];
+                        System.out.println(result + "");
+                    }
+                }
+            }
+        }
     }
 }
