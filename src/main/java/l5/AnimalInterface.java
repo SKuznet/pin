@@ -3,6 +3,8 @@ package l5;
 public interface AnimalInterface {
     public static final int i = 5;
 
+
+
     static String getName() {
         return "Barsik";
     }

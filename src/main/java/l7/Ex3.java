@@ -28,7 +28,5 @@ public class Ex3 {
         set2.addAll(set);
 
         System.out.println(set2);
-        TreeSet
-
     }
 }
